@@ -8,15 +8,22 @@ public class Main {
     {
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
+    public static void compareLines(double length1, double length2) {
+        int comparisonResult = Double.compare(length1, length2);
+        if (comparisonResult > 0) {
+            System.out.println("Line 1 is longer than Line 2.");
+        } else if (comparisonResult < 0) {
+            System.out.println("Line 1 is shorter than Line 2.");
+        } else {
+            System.out.println("Both lines are of equal length.");
+        }
+    }
 
 
     public static void main(String[] args) {
 
-        System.out.println("Start with Displaying Welcome to Line Comparison Computation Program");
-
         System.out.println("Welcome to Line Comparison Computation Program on Master Branch");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to Line Comparison Computation Program on Master Branch");
         System.out.println("Enter Co-ordinated for this First Line");
         System.out.println("Enter x1 : ");
         double x1 = sc.nextDouble();
@@ -37,24 +44,19 @@ public class Main {
         System.out.print("Enter y2: ");
         double y4 = sc.nextDouble();
 
-        Main checker = new Main();
 
         // Calculate lengths of both lines
-        double length1 = checker.calculateLength(x1, y1, x2, y2);
-        double length2 = checker.calculateLength(x3, y3, x4, y4);
+        double length1 = calculateLength(x1, y1, x2, y2);
+        double length2 = calculateLength(x3, y3, x4, y4);
 
         // Display lengths of the lines
-        System.out.printf("The length of the line between points (%.2f, %.2f) and (%.2f, %.2f) is: %.2f%n", x1, y1, x2, y2, length1);
-        System.out.printf("The length of the line between points (%.2f, %.2f) and (%.2f, %.2f) is: %.2f%n", x3, y3, x4, y4, length2);
+        System.out.printf("Length of Line 1: %.2f%n", length1);
+        System.out.printf("Length of Line 2: %.2f%n", length2);
 
-        // Simplified logic to check equality
-        if (length1 == length2) {
-            System.out.println("The two lines are equal.");
-        } else {
-            System.out.println("The two lines are not equal.");
-        }
+
 
         sc.close();
     }
 }
+
 
